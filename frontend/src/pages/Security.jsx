@@ -21,10 +21,16 @@ function Security() {
             const response = await axios.post('/reset-password',{...values, email : fetchUserData.email})
             console.log(response,"tressss");
             if(response.data.success){
-                setSuccess(true)
+              setSuccess(true)
+              setTimeout(() => {
+                setSuccess(false)
+              }, 3000);
                 resetForm()
             }else if (response.data.error) {
-                setError(true)
+              setError(true)
+              setTimeout(() => {
+                setError(false)
+              }, 3000);
             }
         } catch (error) {
             console.log("reset Password error",error);
@@ -72,7 +78,7 @@ function Security() {
                         type="password"
                         id="currentpassword"
                         name="currentpassword"
-                        className="bg-gray-800 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5"
+                        className="bg-gray-800 border border-indigo-300 text-gray-400 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5"
                         placeholder="Current password"
                         required
                       />
@@ -91,7 +97,7 @@ function Security() {
                       type="password"
                       name="password"
                       id="email"
-                      className="bg-gray-800 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5"
+                      className="bg-gray-800 border border-indigo-300 text-gray-400 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5"
                       placeholder="New password"
                     />
                     <ErrorMessage name="password" component="small" style={{ color: 'red' }} />
@@ -108,7 +114,7 @@ function Security() {
                       name="cpassword"
                       type="password"
                       rows="4"
-                      className="block p-2.5 w-full text-sm text-indigo-900 bg-gray-800 rounded-lg border border-indigo-300 focus:ring-indigo-500 focus:border-indigo-500"
+                      className="block p-2.5 w-full text-sm text-gray-400 bg-gray-800 rounded-lg border border-indigo-300 focus:ring-indigo-500 focus:border-indigo-500"
                       placeholder="Confirm password"
                     />
                     <ErrorMessage name="cpassword" component="small" style={{ color: 'red' }} />
