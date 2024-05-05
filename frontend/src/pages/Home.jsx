@@ -1,23 +1,33 @@
 import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { baseURL } from '../constants/Constants';
 import { BsInstagram  } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa6";
 import { Toast, Alert } from 'react-daisyui';
+import axios from '../axios'
+import { setUserData, updateName } from '../redux/features/userSlice';
 
 
 function Home() {
 
   const fetchUserData = useSelector((state) => state.user.userData);
   const [isFollow, setFollow] = useState(false)
+  const dispatch = useDispatch()
+
   
   const handleFollow = () => {
     setFollow(true)
     setTimeout(() => {
       setFollow(false)
     }, 2000);
+  }
+
+  const handleClick = () => {
+    dispatch(updateName())
+    console.log("hello");
+    
   }
 
   return (

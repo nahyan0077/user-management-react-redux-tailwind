@@ -27,6 +27,8 @@ module.exports = {
 
                 const token = jwt.sign({ user: savedUser._id }, process.env.JWT_SECRET);
 
+                
+
                 res.cookie("token", token, {
                     httpOnly: true,
                     maxAge: 1000 * 60 * 60 * 24,
@@ -39,6 +41,7 @@ module.exports = {
         }
     },
 
+    
     fetchUserData: async (req, res) => {
         try {
 
@@ -80,7 +83,7 @@ module.exports = {
                 return res.json({ passwordError: "Password does't match" });
             } else {
                 const token = jwt.sign({ user: userExist._id }, process.env.JWT_SECRET, { expiresIn: "30d" });
-
+                console.log(token);
                 res.cookie("token", token, {
                     httpOnly: true,
                     maxAge: 1000 * 60 * 60 * 24,

@@ -6,7 +6,7 @@ module.exports = {
     fetchUserAdmin : async (req,res) => {
         try {
             const { search } = req.query;
-            console.log("search....",search);
+
             let query = { role: { $ne: "admin" } };
             if (search) {
               query.name = { $regex: new RegExp(search, 'i') };
@@ -25,9 +25,7 @@ module.exports = {
 
     editUser : async (req,res) => {
       try {
-        console.log(req.body,"edit name...");
         const {username, user_id} = req.body
-
         await users.updateOne({ _id : user_id }, { $set : { name : username } })
         res.json({ success: true });
 
@@ -51,7 +49,7 @@ module.exports = {
     addNewUser : async (req,res) => {
       try {
         const {username, email, password} = req.body
-        console.log("new user data",req.body);
+
         const newUser = new users ({
           name : username,
           email,
