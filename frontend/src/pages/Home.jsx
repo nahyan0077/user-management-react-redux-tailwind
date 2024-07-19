@@ -7,7 +7,7 @@ import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa6";
 import { Toast, Alert } from 'react-daisyui';
 import axios from '../axios'
-import { setUserData, updateName } from '../redux/features/userSlice';
+import { setUserData } from '../redux/features/userSlice';
 
 
 function Home() {
