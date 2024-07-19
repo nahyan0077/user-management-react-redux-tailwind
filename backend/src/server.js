@@ -17,11 +17,27 @@ app.use(express.json())
 app.use(cookieParser())
 
 
-//cors
-app.use(cors({
-    origin:["http://localhost:3002", "https://user-management-react-redux-tailwind.onrender.com"],
-    credentials:true
-}))
+
+// CORS configuration
+const allowedOrigins = [
+    'http://localhost:3002',
+    'https://user-management-react-redux-tailwind.onrender.com'
+  ];
+  
+  app.use(cors({
+    origin: function (origin, callback) {
+      // allow requests with no origin (like mobile apps or curl requests)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) === -1) {
+        var msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+        return callback(new Error(msg), false);
+      }
+      return callback(null, true);
+    },
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+  }));
 
 
 app.use('/profileimages',express.static('public'))
