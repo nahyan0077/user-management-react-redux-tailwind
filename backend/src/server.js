@@ -19,7 +19,7 @@ app.use(cookieParser())
 
 //cors
 app.use(cors({
-    origin:["http://localhost:3002"],
+    origin:["http://localhost:3002", "https://user-management-react-redux-tailwind.onrender.com"],
     credentials:true
 }))
 
