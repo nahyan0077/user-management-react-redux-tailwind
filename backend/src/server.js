@@ -10,9 +10,9 @@ dotenv.config()
 const userRouter=require('./routers/userRouter')
 const adminRouter =require('./routers/adminRouter')
 
-const PORT=process.env.PORT || 4000
+const PORT=process.env.PORT 
 
-app.use(express.static('public'));
+// app.use('/public', express.static('src/public'));
 app.use(express.json())
 app.use(cookieParser())
 
@@ -20,27 +20,19 @@ app.use(cookieParser())
 
 // CORS configuration
 const allowedOrigins = [
-    'http://localhost:3002',
+    'http://localhost:3000',
     'https://user-management-react-redux-tailwind.onrender.com'
   ];
   
   app.use(cors({
-    origin: function (origin, callback) {
-      // allow requests with no origin (like mobile apps or curl requests)
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.indexOf(origin) === -1) {
-        var msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-        return callback(new Error(msg), false);
-      }
-      return callback(null, true);
-    },
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    origin: allowedOrigins,
+    credentials: true, // This allows cookies to be sent with the request
   }));
 
 
-app.use('/profileimages',express.static('public'))
+// app.use('/profileimages',express.static('public'))
+app.use('/public', express.static('src/public'));
+
 app.use('/',userRouter)
 app.use('/admin',adminRouter)
 
