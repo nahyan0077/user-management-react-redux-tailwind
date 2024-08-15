@@ -29,7 +29,8 @@ module.exports = {
 
                 res.cookie("token", token, {
                     httpOnly: true,
-                    sameSite: none,
+                    sameSite: "None",
+                    secure: true,
                     maxAge: 1000 * 60 * 60 * 24,
                 }).json({ success: true });
             }
@@ -85,7 +86,8 @@ module.exports = {
                 console.log(token);
                 res.cookie("token", token, {
                     maxAge: 1000 * 60 * 60 * 24,
-                    sameSite: none,
+                    sameSite: "None",
+                    secure: true
                 }).json({ success: true });
             }
 
