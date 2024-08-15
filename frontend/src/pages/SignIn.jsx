@@ -23,11 +23,11 @@ function SignIn() {
   };
   const handleSubmit = async (loginData) => {
     try {
-      const response = await axios.post("/login", loginData);
+      const response = await axios.post("/login", loginData, { withCredentials: true });
       console.log("hewedf", response);
       if (response.data.success) {
         setLoading(true)
-        const userDataResponse = await axios.get("/fetch-user-data");
+        const userDataResponse = await axios.get("/fetch-user-data",{ withCredentials: true });
         console.log("fetch", userDataResponse.data);
         dispatch(setUserData(userDataResponse.data));
         navigate("/");
