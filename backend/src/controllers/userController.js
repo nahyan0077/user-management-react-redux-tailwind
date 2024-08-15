@@ -85,7 +85,6 @@ module.exports = {
                 const token = jwt.sign({ user: userExist._id }, process.env.JWT_SECRET, { expiresIn: "30d" });
                 console.log(token);
                 res.cookie("token", token, {
-                    httpOnly: true,
                     maxAge: 1000 * 60 * 60 * 24,
                 }).json({ success: true });
             }
