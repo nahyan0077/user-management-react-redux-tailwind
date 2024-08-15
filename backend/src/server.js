@@ -21,12 +21,13 @@ app.use(cookieParser())
 // CORS configuration
 const allowedOrigins = [
     'http://localhost:3000',
-    'https://user-management-react-redux-tailwind.vercel.app/'
+    'https://user-management-react-redux-tailwind.vercel.app'
   ];
   
   app.use(cors({
     origin: allowedOrigins,
-    credentials: true, // This allows cookies to be sent with the request
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true,
   }));
 
 
