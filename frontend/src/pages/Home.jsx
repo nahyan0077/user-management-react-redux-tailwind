@@ -46,7 +46,7 @@ function Home() {
       <div className="mx-auto w-32 h-32 relative -mt-16 border-4 border-white rounded-full overflow-hidden">
         <img
           className="object-cover object-center h-32"
-          src={baseURL+`/${fetchUserData.profile}`}
+          src={baseURL+`/public/${fetchUserData.profile}`}
          
         />
       </div>

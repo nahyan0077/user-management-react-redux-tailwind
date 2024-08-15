@@ -1,1 +1,1 @@
-export const baseURL = 'https://user-management-backend-o4df.onrender.com' || 'http://localhost:5000'
+export const baseURL = import.meta.env.VITE_API_URL;

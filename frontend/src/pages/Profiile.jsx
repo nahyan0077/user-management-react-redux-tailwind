@@ -118,7 +118,7 @@ function Profiile() {
               <div className="flex flex-col items-center space-y-5 sm:flex-row sm:space-y-0">
                   <img
                     className="object-cover w-40 h-40 p-1 rounded-full ring-2 ring-indigo-300 dark:ring-indigo-500"
-                    src={baseURL+`/${fetchUserData.profile}`}
+                    src={baseURL+`/public/${fetchUserData.profile}`}
                     alt="Bordered avatar"
                   />
                   <div className="flex flex-col space-y-5 sm:ml-8">

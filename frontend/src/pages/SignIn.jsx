@@ -44,8 +44,9 @@ function SignIn() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900">
-    <div className="max-w-md w-full p-6 bg-gray-900 rounded-lg shadow-md  shadow-blue-800/40 h-full">
+    <div className="min-h-screen flex items-center justify-center bg-gray-900 flex-col">
+        <h2 className="text-3xl font-extrabold pb-10" > USER MANAGEMENT </h2>
+    <div className="max-w-md w-full p-6 bg-gray-900 rounded-lg shadow-md  border border-gray-700">
       <h2 className="text-2xl font-bold mb-6 text-center text-white">Login</h2>
       { loading && <LoadingScreen/> }
       {emailError && <Alert severity="error">{emailError}</Alert>}
