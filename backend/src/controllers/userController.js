@@ -27,10 +27,9 @@ module.exports = {
 
                 const token = jwt.sign({ user: savedUser._id }, process.env.JWT_SECRET);
 
-                
-
                 res.cookie("token", token, {
                     httpOnly: true,
+                    sameSite: none,
                     maxAge: 1000 * 60 * 60 * 24,
                 }).json({ success: true });
             }
@@ -86,6 +85,7 @@ module.exports = {
                 console.log(token);
                 res.cookie("token", token, {
                     maxAge: 1000 * 60 * 60 * 24,
+                    sameSite: none,
                 }).json({ success: true });
             }
 
